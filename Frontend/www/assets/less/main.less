@@ -1,10 +1,10 @@
-@mainColor: orange;
+@mainColor: #e38d13;
 
 @import "pizza/pizza-card";
 
 @cartPanelWidth: 325px;
 @pizzaPadding: 15px;
-@topPanelHeight: 86px;
+@topPanelHeight: 85px;
 @iconColor: #dc7b2e;
 @nColor: darkorange;
 @iconWidth: @topPanelHeight + @topPanelHeight/6 + 2;
@@ -17,7 +17,7 @@
 }
 
 .topPanel {
-  background-color: black;
+  background: rgba(0, 0, 0, .8);
   width: 100%;
   height: @topPanelHeight;
 
@@ -26,67 +26,328 @@
   left: 0;
 
   box-sizing: border-box;
-  padding: 0 @cartPanelWidth + @pizzaPadding 0 @iconWidth+30;
 
-  font-size: 36px;
   color: white;
-  text-align: right;
 
+  padding-left: 130px;
+  padding-right: @cartPanelWidth + @pizzaPadding;
 
+  min-height: 50px;
+  margin-bottom: 20px;
+
+  z-index: -1;
+
+}
+
+.topPanel .topPanelsTop {
+  width: 100%;
+  font-size: 12px;
+  line-height: 11px;
+  margin: 0;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid;
+  color: #a1a1a1;
+}
+
+.phoneNumber {
+  font-size: 20px;
+  padding-right: 30px;
+  padding-bottom: 15px;
+  display: inline-block;
+}
+
+.schedule {
+  font-size: 12px;
+  padding-right: 30px;
+  display: inline-block;
+}
+
+.free-delivery {
+  font-size: 16px;
+  padding-right: 30px;
+  display: inline-block;
+}
+
+.enter {
+  float: right;
+  margin-top: -11px;
+}
+
+.topPanel .topPanelsBottom {
+  display: block !important;
+  padding-bottom: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.link-pizza {
+  color: white;
+  margin-bottom: 5px;
+  a:focus, a:hover {
+    color: #8c8c8c;
+    text-decoration: underline;
+  }
 }
 
 .myContainer {
-  max-width: 900px;
-  min-width: @cartPanelWidth;
-  width: 100%;
+  min-width: 594px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: #fffff5;
+  padding-top: 5px;
+}
+
+.row {
+  margin-right: -15px;
+  margin-left: -15px;
+  box-sizing: border-box;
+}
+
+.pizzaList {
+  margin: auto;
+  padding-left: 30px;
+  padding-right: 360px;
+  max-width: 1354px;
+
+}
+
+
+
+.badge {
+  display: inline-block;
+  min-width: 10px;
+  padding: 3px 7px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+
+  vertical-align: middle;
+  background-color: @nColor;
+  border-color: @iconColor;
+  border-radius: 10px;
+}
+
+.type-of-pizza .pizzasT{
+
+  text-align: center;
   margin: auto;
   box-sizing: border-box;
-  padding: 1px 25px 10px 25px;
 
-  background-color: greenyellow;
+  margin-bottom: 10px;
+}
+
+.name{
+  color: #ec6a1c;
+  font-weight: 700;
+  font-size: 30px;
+  padding-left: 7px;
+}
+
+.type{
+  font-size: 14px;
+  color: #a3a0a0;
+  padding-left: 7px;
+}
+
+.description{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-left: 7px;
+}
+
+
+
+.pizza-info{
+  text-align: center;
 }
 
 .topCart {
-  top: 0;
-  right: 0;
-  background: white;
-  position: absolute;
-  width: 100%;
-  height: @topPanelHeight;
+
 
 }
 
 .bottomCart {
-  position: absolute;
 
-  background: white;
-  border-top: 2px solid #e1e1e2;
-
-  width: 100%;
-  padding: 10px;
-  bottom: 0;
-  right: 0;
 }
 
 .cartPanel {
-
-  width: @cartPanelWidth;
-  position: fixed;
-  height: 100%;
+  position: fixed!important;
   top: 0;
   right: 0;
-  box-shadow: rgba(0, 0, 0, 0.2) -4px 4px 10px;
+  bottom: 0!important;
+  padding-top: 35px;
+  margin-left: 20px;
+  padding-right: 0!important;
+  padding-left: 0!important;
+
+  min-width: 330px;
+  width: 330px;
+  height: 100%;
+  background: #fff;
+  box-shadow: rgba(0,0,0,.2) -3px 3px 10px;
+
+
+
+
 
 }
 
+.topCart{
+  font-size: 20px;
+
+  padding-left: 15px;
+  font-weight: 700;
+  line-height: 17px;
+
+}
+
+.clear{
+  margin-top: 5px;
+  float: right;
+
+  padding-right: 14px;
+  font-size: 11px;
+  line-height: 11px;
+  font-weight: 400;
+  color: rgba(0,0,0,.5);
+
+  cursor: pointer;
+}
+
 .center {
-  background: #e5e5e5;
-  width: 100%;
+
+  background: #ece9e9;
+  margin-top: 30px;
   height: 100%;
-  overflow-y: auto;
-  padding-top: @topPanelHeight;
-  padding-bottom: 125px;
-  box-sizing: border-box;
+
+}
+
+.chosen{
+
+  position: relative;
+  overflow: hidden;
+  height: 120px;
+  padding: 20px 61px 10px 24px;
+  border-bottom: 1px solid rgba(0,0,0,.1);
+}
+
+.pizza-image {
+  position: absolute;
+
+  border-radius: 50% 0 0 50%;
+  height: 120px;
+  width: 120px;
+  right: -50px;
+  top: 0.5px;
+}
+
+.chosen-name{
+
+  margin: 0 0 10px;
+  line-height: 16px;
+  font-size: 20px;
+  color: #ec890e;
+}
+
+.badge-price{
+  margin-right: 10px;
+  font-size: 14px;
+  font-weight: 700;
+
+}
+
+.badge-number{
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.minus-button{
+  width: 30px;
+  height: 30px;
+  padding: 6px 0;
+  font-size: 12px;
+
+  border-radius: 15px;
+}
+
+
+.plus-button{
+  width: 30px;
+  height: 30px;
+
+  font-size: 12px;
+  border-radius: 15px;
+  padding: 6px 0;
+}
+
+.remove-button{
+  width: 30px;
+  height: 30px;
+
+  margin-left: 25px;
+  color: #ec890e;
+
+  font-size: 12px;
+  border-radius: 15px;
+  padding: 6px 0;
+}
+
+.pizza-image img{
+  width: 100%;
+  height:auto;;
+}
+
+.bottomCart{
+  padding: 10px;
+  border-top: 1px solid rgba(0,0,0,.1);
+
+
+  position: fixed;
+
+  width: @cartPanelWidth+@pizzaPadding/2;
+  bottom:0;
+  right:0;
+
+  background: white;
+
+
+}
+
+.price-title{
+  font-size: 15px;
+  margin-bottom: 15px;
+
+  font-weight: 700;
+
+}
+
+.price{
+
+  padding-right: 40px;
+  margin-bottom: 15px;
+
+  font-weight: 700;
+  font-size: 20px;
+  float: right;
+}
+
+.button{
+  margin-right: 2%;
+  margin-left: 2%;
+}
+
+.order-button{
+  border-color: #e38d13;
+  width: 100%;
+  padding-right: 20px;
+  padding-left: 20px;
+
+
 }
 
 .new {
@@ -100,42 +361,28 @@
   color: @nColor;
 }
 
-.aboutP{
+.aboutP {
   background-color: white;
 }
 
-
-.pizza-list{
-  margin: 20px;
-  width: 100%;
-}
-
-.titleAllPizzas{
+.titleAllPizzas {
   text-align: center;
 }
 
-.titleAllPizzas-title{
+.titleAllPizzas-title {
   text-align: center;
 
   display: inline-block;
 }
 
-.pizzaTypes{
+.pizzaTypes {
   text-align: center;
   padding-top: 6px;
   box-sizing: border-box;
 }
 
-.pizzasT{
+.pizzasT {
   display: inline-block;
-}
-
-.enter{
-  float: right;
-}
-
-.row{
-  padding-top: 5px;
 }
 
 .kostyl {
@@ -143,7 +390,98 @@
   font-size: 6px;
 }
 
+.footer{
+  padding: 40px 0;
 
-body{
+  text-align: center;
 
+  padding-right: @cartPanelWidth!important;
+
+  color: #979797;
+  background-color: #fff;
+  border-top: 1px solid #e5e5e5;
+}
+
+
+.logo{
+
+  width: 100px;
+  height: 90px;
+  position: fixed;
+  top: 0;
+  left: 10px;
+  background: @mainColor;
+  z-index: 1000;
+  font-size: 19px;
+  padding: 10px;
+  padding-top: 15px;
+  color: #fff;
+  text-align: center;
+}
+
+.bottomAngles{
+  background-image: url(../images/discount.svg);
+  transform: scaleY(-1);
+  position: fixed;
+  top:90px;
+  left: 10px;
+  width: 100px;
+  height: 11px;
+  z-index: 1000;
+}
+
+.linkLogo{
+  color: #fff!important;
+  text-decoration: none;
+
+}
+
+
+.discount{
+  position: fixed;
+  bottom: 0;
+  left: 10px;
+  background: @mainColor;
+  z-index: 1000;
+  width: 100px;
+  padding: 10px;
+  color: #fff;
+
+  text-align: center;
+
+  border-left: 1px solid #d16200;
+  border-right: 1px solid #d16200;
+}
+
+.upperAngles{
+  background-image: url(../images/discount.svg);
+  width: 100px;
+  height: 11px;
+  top: -11px;
+  left: -1px;
+
+  background-size: 100px 11px;
+  background-repeat: no-repeat;
+  padding: 0!important;
+  margin: 0!important;
+  position: absolute;
+}
+
+.discountTitle{
+  border-bottom: 2px dotted #d16301;
+  font-weight: 700;
+  font-size: 15px;
+
+  margin-bottom: 7px;
+  padding-bottom: 3px;
+}
+
+.discountPersents{
+  font-size: 15px;
+  font-weight: 700;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
 }
