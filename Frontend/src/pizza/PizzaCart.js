@@ -2,6 +2,7 @@
  * Created by chaika on 02.02.16.
  */
 var Templates = require('../Templates');
+var Storage = window.localStorage;
 
 //Перелік розмірів піци
 var PizzaSize = {
@@ -13,25 +14,38 @@ var PizzaSize = {
 var Cart = [];
 
 //HTML едемент куди будуть додаватися піци
-var $cart = $("#cart");
+var $cart = $(".center");
+var total = 0;
+var ordersNumber = 0;
 
 function addToCart(pizza, size) {
     //Додавання однієї піци в кошик покупок
 
-    //Приклад реалізації, можна робити будь-яким іншим способом
-    Cart.push({
-        pizza: pizza,
-        size: size,
-        quantity: 1
-    });
+    function samePizza(obj) {
+        return obj.pizza.id === pizza.id && obj.size === size;
+    }
 
-    //Оновити вміст кошика на сторінці
+    var theSame = Cart.filter(samePizza);
+    if (theSame.length > 0) {
+        theSame[0].quantity++;
+    } else {
+        Cart.push({
+            pizza: pizza,
+            size: size,
+            quantity: 1
+        });
+        ordersNumber++;
+        updateOrdersNumber();
+    }
+    // Оновлюємо суму
+    total += pizza[size].price;
+    updateTotalSum();
     updateCart();
 }
 
 function removeFromCart(cart_item) {
     //Видалити піцу з кошика
-    //TODO: треба зробити
+    Cart.splice(Cart.indexOf(cart_item), 1);
 
     //Після видалення оновити відображення
     updateCart();
@@ -40,7 +54,14 @@ function removeFromCart(cart_item) {
 function initialiseCart() {
     //Фукнція віпрацьвуватиме при завантаженні сторінки
     //Тут можна наприклад, зчитати вміст корзини який збережено в Local Storage то показати його
-    //TODO: ...
+    var savedCart = Storage.getItem("cart");
+    if (savedCart) {
+        Cart = savedCart;
+        total = Storage.getItem("total");
+        updateTotalPrice();
+        ordersNumber = Storage.getItem("ordersNumber");
+        updateOrdersNumber();
+    }
 
     updateCart();
 }
@@ -48,6 +69,16 @@ function initialiseCart() {
 function getPizzaInCart() {
     //Повертає піци які зберігаються в кошику
     return Cart;
+}
+
+function updateTotalPrice() {
+    $(".price").html(total);
+    Storage.setItem("total",total);
+}
+
+function updateOrdersNumber() {
+    $(".titleAllPizzas-number").html(ordersNumber);
+    Storage.setItem("numberOfOrders",numberOfOrders);
 }
 
 function updateCart() {
@@ -63,12 +94,41 @@ function updateCart() {
 
         var $node = $(html_code);
 
-        $node.find(".plus").click(function(){
+        $node.find(".plus").click(function () {
             //Збільшуємо кількість замовлених піц
             cart_item.quantity += 1;
 
+            total += cart_item.pizza[cart_item.size].price;
+
+            //Оновлюємо відображення
+
+            updateTotalPrice();
+            updateCart();
+
+        });
+
+        $node.find(".minus").click(function () {
+            //Зменшуємо
+            if (cart_item.quantity == 1) {
+                removeFromCart(cart_item);
+                ordersNumber--;
+                updateOrdersNumber();
+            }
+            cart_item.quantity -= 1;
+            total -= cart_item.pizza[cart_item.size].price;
             //Оновлюємо відображення
             updateCart();
+            updateTotalPrice();
+        });
+        $node.find(".remove-button").click(function () {
+            removeFromCart(cart_item);
+            total -= cart_item.pizza[cart_item.size].price * cart_item.quantity;
+            ordersNumber--;
+            updateOrdersNumber();
+            updateTotalPrice();
+            //Оновлюємо відображення
+            updateCart();
+            updateTotal();
         });
 
         $cart.append($node);
@@ -76,7 +136,38 @@ function updateCart() {
 
     Cart.forEach(showOnePizzaInCart);
 
+    Storage.setItem("cart", Cart);
+    if (Cart.length === 0) {
+        $(".order-button").attr("disabled", "disabled");
+    } else {
+        $(".order-button").removeAttr("disabled");
+    }
+
 }
+
+$(".clear").click(function () {
+    Cart = [];
+    updateCart();
+    total = 0;
+    updateTotalPrice();
+    ordersNumber = 0;
+    updateOrdersNumber();
+});
+
+
+
+
+$(".order-button").click(function () {
+    if (Cart.length !== 0) {
+        location.href = "/order.html";
+    }
+});
+
+$(".edit-button").click(function () {
+    if (Cart.length !== 0) {
+        location.href = "/";
+    }
+});
 
 exports.removeFromCart = removeFromCart;
 exports.addToCart = addToCart;

@@ -32,83 +32,30 @@
                 </h2>
                 <div class="type-of-pizza hidden-xs">
                     <ul class="nav nav-pills pizzasT">
-                        <li role="presentation" class="active">
-                            <a>All</a>
+                        <li role="presentation" class="active pizzaType">
+                            <a href="#">All</a>
                         </li>
-                        <li role="presentation">
-                            <a>Meat</a>
+                        <li role="presentation" class="pizzaType">
+                        <a href="#">Meat</a>
                         </li>
-                        <li role="presentation">
-                            <a>Ananas</a>
+                        <li role="presentation" class="pizzaType">
+                            <a href="#">Pineapple</a>
                         </li>
-                        <li role="presentation">
-                            <a>Mashrooms</a>
+                        <li role="presentation" class="pizzaType">
+                            <a href="#">Mashrooms</a>
                         </li>
-                        <li role="presentation">
-                            <a>Seafood</a>
+                        <li role="presentation" class="pizzaType">
+                            <a href="#">Seafood</a>
                         </li>
-                        <li role="presentation">
-                            <a>Vegetarian</a>
+                        <li role="presentation" class="pizzaType">
+                            <a href="#">Vegetarian</a>
                         </li>
                     </ul>
                 </div>
             </div>
 
 
-            <div class="col-md-6 col-lg-4">
-                <div class="thumbnail pizza-card">
-                    <span class="label label-danger new">New</span>
-                    <img src="assets/images/pizza_1.jpg">
 
-                    <div class="name">Cool pizza</div>
-                    <div class="type">Meat pizza</div>
-                    <div class="description"><p>Sous, meat, meat, cheese, some more ingredients</p></div>
-                    <div class="pizza-options">
-                        <div class="col-sm-6 pizza-info">
-                            <div class="icons">
-                                <div class="size">
-                                    <img src="assets/images/size-icon.svg">
-                                    <span class="badge-size">5</span>
-                                </div>
-                                <div class="weight">
-                                    <img src="assets/images/weight.svg">
-                                    <span class="badge-weight">500</span>
-                                </div>
-                            </div>
-                            <h2>
-                                <div class="price">
-                                    450
-                                    <div style="font-size:14px;">grn</div>
-                                </div>
-                            </h2>
-                            <span class="btn btn-warning">Buy</span>
-                        </div>
-                        <div class="col-sm-6 pizza-info">
-                            <div class="icons">
-                                <div class="size">
-                                    <img src="assets/images/size-icon.svg">
-                                    <span class="badge-size">50</span>
-                                </div>
-                                <div class="weight">
-                                    <img src="assets/images/weight.svg">
-                                    <span class="badge-weight">700</span>
-                                </div>
-                            </div>
-                            <h2>
-                                <div class="price">
-                                    600
-                                    <div style="font-size:14px;">grn</div>
-                                </div>
-                            </h2>
-                            <span class="btn btn-warning">Buy</span>
-                        </div>
-                    </div>
-                    <p class="kostyl">
-                        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// </p>
-
-                    </p>
-                </div>
-            </div>
 
 
         </div>
@@ -117,46 +64,24 @@
             <div class="topCart">
                         <span class="orderTitle">
                             Order
-                            <span class="badge">1</span>
+                            <span class="badge number-of-orders">0</span>
                         </span>
-                <span class="clear">Clear order</span>
+                <span class="clear" id="clear">Clear order</span>
 
             </div>
 
             <div class="center">
-                <div class="chosen">
-                    <div class="info">
-                        <div class="chosen-name">BBQ (Мала)</div>
-                        <div class="icons">
-                            <img src="assets/images/size-icon.svg">
-                            <span class="size">30</span>
-                            <img src="assets/images/weight.svg">
-                            <span class="weight">460</span>
-                        </div>
-                        <div class="buttons-toolbar">
-                            <span class="badge-price">139грн</span>
-                            <span class="btn btn-success btn-sm plus-button">
-                        <span class="glyphicon glyphicon-plus"></span>
-                    </span>
-                            <span class="badge-number">1</span>
-                            <span class="btn btn-danger btn-sm minus-button">
-                       <span class="glyphicon glyphicon-minus"></span>
-                   </span>
-                            <span class="btn btn-default btn-sm remove-button">
-                       <span class="glyphicon glyphicon-remove"></span>
-                   </span>
-                        </div>
-                    </div>
-                    <div class="pizza-image">
-                        <img src="assets/images/pizza_7.jpg">
-                    </div>
+                <div class="message emptyFridge">
+                    <div> Пусто в холодильнику?</div>
+                    <div> Замовте піцу!</div>
                 </div>
+
 
             </div>
 
             <div class="bottomCart">
                 <span class="price-title">Sum:</span>
-                <span class="price">924 grn</span>
+                <span class="price" id="price">0 grn</span>
                 <div class="button">
                     <span class="btn btn-warning btn-lg order-button">Order</span>
                 </div>

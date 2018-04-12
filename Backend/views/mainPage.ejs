@@ -1,0 +1,48 @@
+<% include common/header.ejs %>
+
+<div class="myContainer">
+
+    <div class="row">
+
+
+        <div class="pizzaList">
+            <div class="titleAllPizzas hidden-xs">
+                <h2>
+                    <span class="titleAllPizzas-title">Усі піци</span>
+                    <span class="badge titleAllPizzas-number">8</span>
+                </h2>
+                <div class="type-of-pizza hidden-xs">
+                    <ul class="nav nav-pills pizzasT">
+                        <li role="presentation" class="active pizzaType">
+                            <a href="#">All</a>
+                        </li>
+                        <li role="presentation" class="pizzaType">
+                            <a href="#">Meat</a>
+                        </li>
+                        <li role="presentation" class="pizzaType">
+                            <a href="#">Pineapple</a>
+                        </li>
+                        <li role="presentation" class="pizzaType">
+                            <a href="#">Mashrooms</a>
+                        </li>
+                        <li role="presentation" class="pizzaType">
+                            <a href="#">Seafood</a>
+                        </li>
+                        <li role="presentation" class="pizzaType">
+                            <a href="#">Vegetarian</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+
+        <% include common/order_Cart.ejs %>
+    </div>
+</div>
+
+<% include common/footer.ejs %>

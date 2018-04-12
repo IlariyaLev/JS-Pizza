@@ -1,6 +1,7 @@
 /**
  * Created by diana on 12.01.16.
  */
+
 var pizza_info = [
     {
         id:1,

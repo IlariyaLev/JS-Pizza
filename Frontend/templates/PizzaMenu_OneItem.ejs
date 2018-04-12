@@ -1,4 +1,6 @@
+
 <%
+var Pizza_List = require('../Pizza_List');
 
 function getIngredientsArray(pizza) {
     //Отримує вміст піци
@@ -19,23 +21,161 @@ function getIngredientsArray(pizza) {
    %>
 <div class="col-md-6 col-lg-4 pizza-card">
     <div class="thumbnail">
-        <img class="pizza-icon" src="<%= pizza.icon %>" alt="Pizza">
+       <img class="pizza-icon" src="<%=pizza.icon %>" alt="Pizza">
 
         <% if(pizza.is_new) { %>
-        <span class="label label-danger">Нова</span>
+        <span class="label label-danger new">Нова</span>
         <% } else if(pizza.is_popular) {%>
-        <span class="label label-success">Популярна</span>
+        <span class="label label-success popular">Популярна</span>
         <% } %>
 
         <div class="caption">
-            <span class="title"><%= pizza.title %></span>
+            <span class="name"><%= pizza.title %></span>
             <div class="type"><%= pizza.type %></div>
             <div class="description">
                 <%= getIngredientsArray(pizza).join(", ") %>
             </div>
         </div>
 
-        <!-- Перед тим щоб показати кнопку необхідно переконатися, що піца має великий розмір -->
-        <button class="btn btn-primary buy-big">Купити велику</button>
+        <div class="pizza-options">
+            <% if(pizza.has_small && !pizza.has_big) { %>
+            <div class="col-sm-12 small pizza-info">
+
+                <div class="icons">
+                    <div class="size">
+                        <img src="<%= pizza.icon_size %>">
+                        <span class="badge-size"><%= pizza.small_size.size %></span>
+                    </div>
+                    <div class="weight">
+                        <img src="<%= pizza.icon_weight %>">
+                        <span class="badge-weight"><%= pizza.small_size.weight %></span>
+                    </div>
+                </div>
+                <h2>
+                    <div class="price">
+                        <%= pizza.small_size.price %>
+                        <div style="font-size:14px;"><%= pizza.small_size.price_currency %></div>
+                    </div>
+                </h2>
+                <span class="btn btn-warning buy-small">Buy</span>
+            </div>
+
+
+            <% } else if (pizza.has_small && pizza.has_big) {%>
+            <div class="col-sm-6 small pizza-info">
+                <div class="icons">
+                    <div class="size">
+                        <img src="<%= pizza.icon_size %>">
+                        <span class="badge-size"><%= pizza.small_size.size %></span>
+                    </div>
+                    <div class="weight">
+                        <img src="<%= pizza.icon_weight %>">
+                        <span class="badge-weight"><%= pizza.small_size.weight %></span>
+                    </div>
+                </div>
+                <h2>
+                    <div class="price">
+                        <%= pizza.small_size.price %>
+                        <div style="font-size:14px;"><%= pizza.small_size.price_currency %></div>
+                    </div>
+                </h2>
+                <span class="btn btn-warning buy-small">Buy</span>
+
+            </div>
+            <div class="col-sm-6 big pizza-info">
+                <div class="icons">
+                    <div class="size">
+                        <img src="<%= pizza.icon_size %>">
+                        <span class="badge-size"><%= pizza.big_size.size %></span>
+                    </div>
+                    <div class="weight">
+                        <img src="<%= pizza.icon_weight %>">
+                        <span class="badge-weight"><%= pizza.big_size.weight %></span>
+                    </div>
+                </div>
+                <h2>
+                    <div class="price">
+                        <%= pizza.big_size.price %>
+                        <div style="font-size:14px;"><%= pizza.big_size.price_currency %></div>
+                    </div>
+                </h2>
+                <span class="btn btn-warning buy-big">Buy</span>
+            </div>
+            <% } else if(pizza.has_big && !pizza.has_small) {%>
+            <div class="col-sm-12 big pizza-info">
+                <div class="icons">
+                    <div class="size">
+                        <img src="<%= pizza.icon_size %>">
+                        <span class="badge-size"><%= pizza.big_size.size %></span>
+                    </div>
+                    <div class="weight">
+                        <img src="<%= pizza.icon_weight %>">
+                        <span class="badge-weight"><%= pizza.big_size.weight %></span>
+                    </div>
+                </div>
+                <h2>
+                    <div class="price">
+                        <%= pizza.big_size.price %>
+                        <div style="font-size:14px;"><%= pizza.big_size.price_currency %></div>
+                    </div>
+                </h2>
+                <span class="btn btn-warning buy-big">Buy</span>
+            </div>
+            <% } %>
+
+
+        <div class="pizza-options">
+            <div class="col-sm-6 pizza-info">
+                <div class="icons">
+                    <div class="size">
+                        <img src="assets/images/size-icon.svg">
+                        <span class="badge-size">5</span>
+                    </div>
+                    <div class="weight">
+                        <img src="assets/images/weight.svg">
+                        <span class="badge-weight">500</span>
+                    </div>
+                </div>
+                <h2>
+                    <div class="price">
+                        450
+                        <div style="font-size:14px;">grn</div>
+                    </div>
+                </h2>
+                <span class="btn btn-warning">Buy</span>
+            </div>
+            <div class="col-sm-6 pizza-info">
+                <div class="icons">
+                    <div class="size">
+                        <img src="assets/images/size-icon.svg">
+                        <span class="badge-size">50</span>
+                    </div>
+                    <div class="weight">
+                        <img src="assets/images/weight.svg">
+                        <span class="badge-weight">700</span>
+                    </div>
+                </div>
+                <h2>
+                    <div class="price">
+                        600
+                        <div style="font-size:14px;">grn</div>
+                    </div>
+                </h2>
+                <span class="btn btn-warning">Buy</span>
+            </div>
+        </div>
+        <p class="kostyl">
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// </p>
+
+        </p>
+
+
+    </div>
+</div>
+
+
+
+
+
     </div>
 </div>
