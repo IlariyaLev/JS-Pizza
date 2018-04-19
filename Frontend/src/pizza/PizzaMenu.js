@@ -33,9 +33,9 @@ function showPizzaList(list) {
     }
 
 
-    var pizzasArr = Pizza_List.pizza_info;
+    var pizzasArr = Pizza_List;
     for (var i=0; i<pizzasArr.length; i++){
-        $pizza_list.forEach(showOnePizza(pizzasArr[i]));
+        showOnePizza(pizzasArr[i]);
     }
 
 
@@ -114,7 +114,7 @@ function initialiseMenu() {
               // if(err){
                         //alert("Error")
                   // }else{
-                        Pizza_List=$pizza_list;
+                        //Pizza_List=$pizza_list;
                         showPizzaList(Pizza_List);
                         $(".number-of-orders").html(Pizza_List.length);
                    // }
